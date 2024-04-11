@@ -1,0 +1,81 @@
+#MYSQL SERVER (MYSQL,APACHE,
+sudo apt update; sudo apt install mysql-server -y; sudo apt-get install apache2 -y;
+
+--------------------------------------
+# check running status of MYSQL
+
+sudo systemctl status mysql
+---------------------------------------
+# check running status of MYSQL
+
+sudo systemctl status apache2
+--------------------------------------
+#INSTALLING PHP 
+
+sudo apt install php -y;
+------------------------------------------
+#INSTALLING PHPMYADMIN
+
+sudo apt install phpmyadmin -y;
+------------------------------------------
+#then select APACHE2 
+
+click ok
+------------------------------------------
+#Configure database for phpmyadmin with dbconfig-common? 
+
+YES
+-------------------------------------------
+# CREATE PASSWORD
+ ****
+#RE-ENTER PASSWORD
+****
+-------------------------------
+#
+sudo phpenmod mbstring
+-------------------------------
+#
+sudo systemctl restart apache2
+---------------------------------
+#INSTALL NET-TOOLS
+
+sudo apt install net-tools
+---------------------------------
+#THEN CHECK 
+
+ifconfig
+----------------------------------
+# OPEN THE FILE 
+
+sudo nano /etc/apache2/apache2.conf
+------------------------------------
+#ADD THE FOLLOWING LINE TO THE END OF THE FILE
+
+Include /etc/phpmyadmin/apache.conf
+# THEN PRESS CTRL+O and CLICK ENTER BUTTON THEN CLICK CTRL+X
+--------------------------------------------------------
+
+# RESTART APACHE2
+
+/etc/init.d/apache2 restart
+-----------------------------------------
+#ENTER INTO MYSQL
+
+sudo mysql -u root
+
+#ENTER YOUR PASSWORD
+-------------------------------------------
+#THEN TYPE IN MYSQL
+
+#CREATING USER
+
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';
+
+#GRANT PERMISSION TO ALL DATABASE ACCESS
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+exit;
+----------------------------------------------
